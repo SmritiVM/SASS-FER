@@ -73,8 +73,9 @@ while True:
     if frame is None:
         print('No camera')
         break
-
-    detect_and_display(frame, classifier, emotion_labels)
+    
+    flipped_frame = cv.flip(frame, 1)
+    detect_and_display(flipped_frame, classifier, emotion_labels)
 
     if cv.waitKey(1) == ord('q'):
         break
