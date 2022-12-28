@@ -2,10 +2,16 @@
 import cv2 as cv
 import argparse
 import numpy as np
+import tensorflow as tf
 from keras.models import load_model
 from tensorflow.keras.utils import img_to_array
 from keras.preprocessing import image
-from time import sleep
+
+import os
+#Removing the output logs of tensorflow
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = '3'
+
+
 
 #FUNCTIONS
 def detect_and_display(frame, classifier, emotion_labels):
@@ -38,27 +44,30 @@ def detect_and_display(frame, classifier, emotion_labels):
         
     cv.imshow('Capture - Face detection', frame)
 
+
+#Argument Parser to organize the arguments required
 parser = argparse.ArgumentParser()
 parser.add_argument('--face_cascade', help = 'Path to face cascade', default=r"C:\Users\skhim\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2\data\haarcascade_frontalface_alt.xml")
 parser.add_argument('--camera', help = 'Camera divide number', type = int, default = 0)
 args = parser.parse_args()
 
+#Face Cascading
 face_cascade_name = args.face_cascade
-
 face_cascade = cv.CascadeClassifier()
-
-
 if not face_cascade.load(cv.samples.findFile(face_cascade_name)):
     print('Error')
     exit(0)
 
+#Video Capturing
 camera_device = args.camera
 cap = cv.VideoCapture(camera_device)
 
+#Model loading
 classifier = load_model(r"C:\Users\skhim\OneDrive\Documents\Simi_studies\WE\Project\model.h5")
-
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
 
+
+#Reading captured video and invoking the detection function
 while True:
     ret, frame = cap.read()
     if frame is None:
@@ -70,5 +79,8 @@ while True:
     if cv.waitKey(1) == ord('q'):
         break
 
+#Releasing the Video Capture object
 cap.release()
 cv.destroyAllWindows()
+
+
