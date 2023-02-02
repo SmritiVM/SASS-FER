@@ -4,8 +4,9 @@ The goal of this project is to create a tool that could be used to identify a su
 
 We’ll work on two types of emotion representation systems:
 
-Discrete Categories: image input
-Continuous Dimensions: video input, which aims to determine the emotion of the person by analyzing various dimensions. 
+- Discrete Categories: image input, and
+
+- Continuous Dimensions: video input, which aims to determine the emotion of the person by analyzing various dimensions. 
 
 # Drowsiness Detection 
 ## Dependencies to install before running the detector:
