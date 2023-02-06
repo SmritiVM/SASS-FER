@@ -9,7 +9,7 @@ We’ll work on two types of emotion representation systems:
 - Continuous Dimensions: video input, which aims to determine the emotion of the person by analyzing various dimensions. 
 
 # Drowsiness Detection 
-## Dependencies to install before running the detector:
+### Dependencies to install before running the detector:
 1. opencv - pip install opencv-python
 2. scipy - pip install scipy
 3. dlib - conda install -c conda-forge dlib
@@ -18,12 +18,12 @@ We’ll work on two types of emotion representation systems:
 6. numpy 
 
 
-Eye Aspect Ratio(EAR) is given by the following formula :
+Eye Aspect Ratio(EAR) is calculated by the formula below:
 
 ![image](https://user-images.githubusercontent.com/83316095/215727326-5ae04015-7804-4632-9845-73cd9c24a39d.png)
 
-To run the program, simply type the following command :
-python3 Drownsiness_Detection.py
+To run the program, type the following command on the command prompt:
+python3 Drowsiness_Detection.py
 
 or 
 
