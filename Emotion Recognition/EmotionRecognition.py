@@ -64,7 +64,7 @@ cap = cv.VideoCapture(camera_device)
 
 #Model loading
 classifier = load_model("Emotion Recognition\model.h5")
-emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
+emotion_labels = ['Angry', '', '', 'Happy','Neutral', 'Sad', 'Surprise']
 
 
 #Reading captured video and invoking the detection function
