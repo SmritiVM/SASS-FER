@@ -47,7 +47,7 @@ def detect_and_display(frame, classifier, emotion_labels):
 
 #Argument Parser to organize the arguments required
 parser = argparse.ArgumentParser()
-parser.add_argument('--face_cascade', help = 'Path to face cascade', default=r"Emotion Recognition\haarcascade_frontalface_alt.xml")
+parser.add_argument('--face_cascade', help = 'Path to face cascade', default="haarcascade_frontalface_alt.xml")
 parser.add_argument('--camera', help = 'Camera divide number', type = int, default = 0)
 args = parser.parse_args()
 
@@ -63,7 +63,7 @@ camera_device = args.camera
 cap = cv.VideoCapture(camera_device)
 
 #Model loading
-classifier = load_model("Emotion Recognition\model.h5")
+classifier = load_model("model.h5")
 emotion_labels = ['Angry', '', 'Fear', 'Happy','Neutral', 'Sad', 'Surprise']
 
 
